@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample HTML Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="assets/js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+   <select id="gender">
+       <option value="">Choose gender</option>
+       <option value="1">Baye</option>
+       <option value="2">Lake</option>
+   </select>
+   <br>
+   <span id="txt1" style="display: none; color: white"></span>
+   <script type="text/javascript">
+       $('#gender').on('change',function (e) {
+            $('#txt1').hide();
+            var getvalue = $(this).val();
+            var selectedOption = $(this).find('option:selected');
+            var text = selectedOption.text();
+            if (text == "Lake") {
+                $('body').css('background-color','black');
+                $('#txt1').show();
+                $('#txt1').text("Gipili nimo: " + text + "value: "+ getvalue);
+            }else if(text == "Baye"){
+                $('body').css('background-color','pink');
+                $('#txt1').show();
+                $('#txt1').text("Gipili nimo: " + text + "value: "+ getvalue);
+            }else{
+                $('body').css('background-color','white');
+            }
+       })
+   </script>
+</body>
+</html>
